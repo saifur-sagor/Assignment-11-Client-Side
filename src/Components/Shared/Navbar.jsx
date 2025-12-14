@@ -54,12 +54,15 @@ const Navbar = () => {
             <a>Books</a>
           </li>
           <li>
-            <a>Dashboard</a>
+            <Link to="/dashBoard">Dashboard</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn bg-purple-500 text-white hover:bg-purple-600">
+        <Link
+          to="register"
+          className="btn bg-purple-500 text-white hover:bg-purple-600"
+        >
           Login
         </Link>
       </div>

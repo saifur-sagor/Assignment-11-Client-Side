@@ -2,8 +2,10 @@ import React from "react";
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home/Home";
+import Dashboard from "../Layout/Dashboard";
+import Register from "../Register";
 
- export const routes = createBrowserRouter([
+export const routes = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
@@ -12,8 +14,16 @@ import Home from "../Pages/Home/Home";
         index: true,
         Component: Home,
       },
+      {
+        path: "register",
+        Component: Register,
+      },
     ],
   },
+  // dashboard
+  {
+    path: "/dashBoard",
+    Component: Dashboard,
+    children: "",
+  },
 ]);
-
-

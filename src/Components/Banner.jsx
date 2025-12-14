@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const Banner = () => {
@@ -29,9 +29,8 @@ const Banner = () => {
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        loop={true}
+        loop
         className="w-full h-[55vh] md:h-[65vh] lg:h-[75vh] rounded-xl overflow-hidden"
-        style={{ minHeight: "55vh" }} // ensures height never shrinks
       >
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
@@ -41,7 +40,7 @@ const Banner = () => {
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              {/* Overlay */}
+
               <div className="absolute inset-0 bg-black/60 flex items-center">
                 <div className="px-6 md:px-20 max-w-xl space-y-4 text-white">
                   <h1 className="text-3xl md:text-5xl font-bold">
@@ -50,7 +49,7 @@ const Banner = () => {
                   <p className="text-base md:text-lg text-gray-200">
                     {slide.desc}
                   </p>
-                  <button className="btn text-white bg-purple-600">
+                  <button className="btn bg-purple-600 text-white">
                     {slide.btn}
                   </button>
                 </div>
