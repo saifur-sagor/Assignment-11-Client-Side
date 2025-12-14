@@ -1,8 +1,30 @@
 import React from "react";
-import { FaBookOpen } from "react-icons/fa";
-import { Link } from "react-router";
+import { FaBookOpen, FaUserCircle } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router";
+import useAuth from "../Context/useAuth";
+import Swal from "sweetalert2";
+import defaultUser from "../../assets/UserImage.png";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { user, logOut } = useAuth();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Successfully logOut",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        navigate(location?.state?.pathname || "/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -39,19 +61,22 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <button className="flex items-center justify-center text-2xl font-bold">
+        <Link
+          to="/"
+          className="flex items-center justify-center text-2xl font-bold"
+        >
           <span className="text-2xl font-bold text-purple-600">Book </span>{" "}
           Courier <FaBookOpen className="text-purple-600 text-2xl" />
-        </button>
+        </Link>
         <Link to="/"></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a>Books</a>
+            <Link>Books</Link>
           </li>
           <li>
             <Link to="/dashBoard">Dashboard</Link>
@@ -59,12 +84,31 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link
-          to="register"
-          className="btn bg-purple-500 text-white hover:bg-purple-600"
-        >
-          Login
-        </Link>
+        <div className="mr-2">
+          <img
+            title={user?.displayName || "User"}
+            className="w-10 h-10 rounded-full"
+            src={user?.photoURL || defaultUser}
+            alt="userImage"
+          />
+        </div>
+        <div>
+          {user ? (
+            <button
+              onClick={handleLogOut}
+              className="btn bg-purple-500 text-white hover:bg-purple-600"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="login"
+              className="btn bg-purple-500 text-white hover:bg-purple-600"
+            >
+              Login
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );

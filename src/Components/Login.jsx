@@ -2,8 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "./Context/useAuth";
 import { Link, useLocation, useNavigate } from "react-router";
-// import SocialLogin from "../SocialLogin/SocialLogin";
+
 import Swal from "sweetalert2";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
   const { signInUser } = useAuth();
@@ -13,11 +14,13 @@ const Login = () => {
 
   const handleSignIn = (data) => {
     signInUser(data.email, data.password)
-      .then(() => {
+      .then((result) => {
+        console.log(result.user);
+
         Swal.fire({
           position: "top-center",
           icon: "success",
-          title: "Successfully logOut",
+          title: "Successfully login",
           showConfirmButton: false,
           timer: 2000,
         });
@@ -63,7 +66,7 @@ const Login = () => {
               Register
             </Link>
           </p>
-          {/* <SocialLogin></SocialLogin> */}
+          <SocialLogin></SocialLogin>
         </form>
       </div>
     </div>

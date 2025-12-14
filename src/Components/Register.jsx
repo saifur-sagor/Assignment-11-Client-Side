@@ -5,12 +5,6 @@ import useAxiosSecure from "./Context/AxiosSecure";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-// import { useForm } from "react-hook-form";
-// import UseAuth from "../../../Context/Hooks/UseAuth";
-// import { Link, useLocation, useNavigate } from "react-router";
-// import axios from "axios";
-// import useAxiosSecure from "../../../Context/Hooks/UseAxiosSecure";
-
 const Register = () => {
   const { registerUser, updateUserProfile } = useAuth();
   const location = useLocation();
@@ -23,7 +17,7 @@ const Register = () => {
   } = useForm();
   // user create handler
   const handleRegister = (data) => {
-    // console.log("after register", data);
+    console.log("after register", data);
     const profilePhoto = data.photo[0];
     registerUser(data.email, data.password)
       .then(() => {
@@ -52,7 +46,6 @@ const Register = () => {
               console.log("user created in the database");
             }
           });
-
           // update user profile to firebase
           const userProfile = {
             displayName: data.name,
@@ -60,7 +53,6 @@ const Register = () => {
           };
           updateUserProfile(userProfile)
             .then(() => {
-              // console.log("updateProfile done");
               navigate(location.state || "/");
             })
             .catch((err) => {
