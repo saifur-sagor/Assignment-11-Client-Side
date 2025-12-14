@@ -1,9 +1,5 @@
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { HiHome } from "react-icons/hi";
-import { MdDashboard } from "react-icons/md";
-import { BsBookFill } from "react-icons/bs";
-import { FaUser } from "react-icons/fa";
 
 const Footer = () => {
   return (

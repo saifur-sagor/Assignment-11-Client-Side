@@ -39,7 +39,9 @@ const Banner = () => {
               <p className="text-base md:text-lg text-gray-200">
                 Build good habits & break bad ones easily.
               </p>
-              <button className="btn btn-primary">Explore Books</button>
+              <button className="btn text-white bg-purple-600">
+                Explore Books
+              </button>
             </div>
           </div>
         </div>
@@ -63,7 +65,9 @@ const Banner = () => {
               <p className="text-base md:text-lg text-gray-200">
                 Timeless lessons on wealth & happiness.
               </p>
-              <button className="btn btn-primary">View Collection</button>
+              <button className="btn text-white bg-purple-600">
+                View Collection
+              </button>
             </div>
           </div>
         </div>
@@ -87,7 +91,9 @@ const Banner = () => {
               <p className="text-base md:text-lg text-gray-200">
                 What the rich teach their kids about money.
               </p>
-              <button className="btn btn-primary">Order Now</button>
+              <button className="btn text-white bg-purple-600">
+                Order Now
+              </button>
             </div>
           </div>
         </div>
