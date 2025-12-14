@@ -39,13 +39,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <p className="text-2xl font-bold flex items-center justify-center gap-1">
+        <button className="flex items-center justify-center text-2xl font-bold">
           <span className="text-2xl font-bold text-purple-600">Book </span>{" "}
-          Courier
-          <Link to="/">
-            <FaBookOpen className="text-purple-600 text-2xl" />
-          </Link>
-        </p>
+          Courier <FaBookOpen className="text-purple-600 text-2xl" />
+        </button>
+        <Link to="/"></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -61,7 +59,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link className="btn bg-purple-500 text-white hover:bg-purple-600">
+          Login
+        </Link>
       </div>
     </div>
   );

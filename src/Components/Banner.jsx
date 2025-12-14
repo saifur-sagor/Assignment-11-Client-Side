@@ -71,7 +71,7 @@ const Banner = () => {
         {/* Slide 3 */}
         <div id="slide3" className="carousel-item relative w-full">
           <img
-            src="https://images.unsplash.com/photo-1528207776546-365bb710ee93"
+            src="https://i.ibb.co.com/gLrzcKQg/study-group-learning-library.jpg"
             className="w-full object-cover"
           />
 
