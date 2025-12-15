@@ -1,12 +1,12 @@
 import React from "react";
-import useAuth from "./Context/useAuth";
+import UseAuth from "./Hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router";
-import useAxiosSecure from "./Context/AxiosSecure";
+import useAxiosSecure from "./Hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const Register = () => {
-  const { registerUser, updateUserProfile } = useAuth();
+  const { registerUser, updateUserProfile } = UseAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();

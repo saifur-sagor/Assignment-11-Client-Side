@@ -1,14 +1,14 @@
 import React from "react";
 import { FaBookOpen, FaUserCircle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
-import useAuth from "../Context/useAuth";
+import UseAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
 import defaultUser from "../../assets/UserImage.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, logOut } = useAuth();
+  const { user, logOut } = UseAuth();
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -56,9 +56,13 @@ const Navbar = () => {
             <li>
               <a>Books</a>
             </li>
-            <li>
-              <a>Dashboard</a>
-            </li>
+            {user ? (
+              <li>
+                <a>Dashboard</a>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
         <Link
@@ -78,9 +82,7 @@ const Navbar = () => {
           <li>
             <Link>Books</Link>
           </li>
-          <li>
-            <Link to="/dashBoard">Dashboard</Link>
-          </li>
+          <li>{user ? <Link to="dashBoard">Dashboard</Link> : ""}</li>
         </ul>
       </div>
       <div className="navbar-end">

@@ -1,13 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "./Context/useAuth";
+import UseAuth from "./Hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router";
-
 import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
 
 const Login = () => {
-  const { signInUser } = useAuth();
+  const { signInUser } = UseAuth();
   const { register, handleSubmit } = useForm();
   const location = useLocation();
   const navigate = useNavigate();

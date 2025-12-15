@@ -1,11 +1,11 @@
 import React from "react";
-import useAuth from "./Context/useAuth";
+import UseAuth from "./Hooks/useAuth";
 import { useLocation, useNavigate } from "react-router";
-import useAxiosSecure from "./Context/AxiosSecure";
+import useAxiosSecure from "./Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const SocialLogin = () => {
-  const { googleSignIn } = useAuth();
+  const { googleSignIn } = UseAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();

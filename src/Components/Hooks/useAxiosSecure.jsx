@@ -4,7 +4,13 @@ const axiosSecure = axios.create({
   baseURL: "http://localhost:5000",
 });
 const useAxiosSecure = () => {
-  //   const { user, logOut } = UseAuth();
+  
+  return axiosSecure;
+};
+
+export default useAxiosSecure;
+
+//   const { user, logOut } = UseAuth();
   //   const navigate = useNavigate();
   //   useEffect(() => {
   //     // intercept request
@@ -33,8 +39,3 @@ const useAxiosSecure = () => {
   //       axiosSecure.interceptors.response.eject(resInterceptor);
   //     };
   //   }, [user, logOut, navigate]);
-
-  return axiosSecure;
-};
-
-export default useAxiosSecure;

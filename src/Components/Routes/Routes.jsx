@@ -6,6 +6,7 @@ import Dashboard from "../Layout/Dashboard";
 import Register from "../Register";
 import Login from "../Login";
 import PrivateRoutes from "./PrivateRoutes";
+import AddBook from "../Pages/Dashboard/AddBook";
 
 export const routes = createBrowserRouter([
   {
@@ -28,13 +29,18 @@ export const routes = createBrowserRouter([
   },
   // dashboard
   {
-    path: "/dashBoard",
+    path: "dashBoard",
     element: (
       <PrivateRoutes>
         <Dashboard></Dashboard>
       </PrivateRoutes>
     ),
 
-    children: "",
+    children: [
+      {
+        path: "addBook",
+        Component: AddBook,
+      },
+    ],
   },
 ]);

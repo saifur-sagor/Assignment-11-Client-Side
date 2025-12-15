@@ -1,7 +1,8 @@
 import React from "react";
 import { FaBookOpen } from "react-icons/fa";
 import { MdHomeFilled } from "react-icons/md";
-import { Link } from "react-router";
+import { BiSolidBookAdd } from "react-icons/bi";
+import { Link, Outlet } from "react-router";
 
 const Dashboard = () => {
   return (
@@ -37,7 +38,9 @@ const Dashboard = () => {
           </div>
         </nav>
         {/* Page content here */}
-        <div className="p-4">Page Content</div>
+        <div className="p-4">
+          <Outlet></Outlet>
+        </div>
       </div>
 
       <div className="drawer-side is-drawer-close:overflow-visible">
@@ -59,6 +62,20 @@ const Dashboard = () => {
                   {/* Home icon */}
                   <MdHomeFilled />
                   <span className="is-drawer-close:hidden">Homepage</span>
+                </button>
+              </Link>
+            </li>
+            {/* Add Book */}
+            <li>
+              <Link to="addBook">
+                <button
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Add Book"
+                >
+                  {/* icon */}
+                  <BiSolidBookAdd />
+
+                  <span className="is-drawer-close:hidden">Add Book</span>
                 </button>
               </Link>
             </li>
