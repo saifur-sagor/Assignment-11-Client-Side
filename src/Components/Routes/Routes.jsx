@@ -7,6 +7,7 @@ import Register from "../Register";
 import Login from "../Login";
 import PrivateRoutes from "./PrivateRoutes";
 import AddBook from "../Pages/Dashboard/AddBook";
+import AllBooks from "../AllBooks";
 
 export const routes = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const routes = createBrowserRouter([
       {
         index: true,
         Component: Home,
+      },
+      {
+        path: "allBooks",
+        Component: AllBooks,
       },
       {
         path: "register",

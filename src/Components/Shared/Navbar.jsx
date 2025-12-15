@@ -80,7 +80,7 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link>Books</Link>
+            <Link to="allBooks">Books</Link>
           </li>
           <li>{user ? <Link to="dashBoard">Dashboard</Link> : ""}</li>
         </ul>
