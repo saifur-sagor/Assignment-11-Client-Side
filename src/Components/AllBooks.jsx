@@ -40,7 +40,7 @@ const AllBooks = () => {
               </h3>
               <p className="text-gray-700 font-medium">Author: {book.author}</p>
               <div className="flex justify-between items-center mt-2">
-                <span className="badge badge-primary text-white px-3 py-1">
+                <span className="badge bg-purple-600 text-white px-3 py-1">
                   {book.price} ৳
                 </span>
                 <span

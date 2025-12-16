@@ -8,6 +8,7 @@ import Login from "../Login";
 import PrivateRoutes from "./PrivateRoutes";
 import AddBook from "../Pages/Dashboard/AddBook";
 import AllBooks from "../AllBooks";
+import BookDetails from "../BookDetails";
 
 export const routes = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const routes = createBrowserRouter([
       {
         path: "allBooks",
         Component: AllBooks,
+      },
+      {
+        path: "books/:id",
+        Component: BookDetails,
       },
       {
         path: "register",
