@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBookOpen } from "react-icons/fa";
+import { FaBookOpen, FaShoppingCart } from "react-icons/fa";
 import { MdHomeFilled } from "react-icons/md";
 import { BiSolidBookAdd } from "react-icons/bi";
 import { Link, Outlet } from "react-router";
@@ -76,6 +76,20 @@ const Dashboard = () => {
                   <BiSolidBookAdd />
 
                   <span className="is-drawer-close:hidden">Add Book</span>
+                </button>
+              </Link>
+            </li>
+            {/* my orders */}
+            <li>
+              <Link to="myOrders">
+                <button
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="My Orders"
+                >
+                  {/* icon */}
+                  <FaShoppingCart />
+
+                  <span className="is-drawer-close:hidden">My Orders</span>
                 </button>
               </Link>
             </li>

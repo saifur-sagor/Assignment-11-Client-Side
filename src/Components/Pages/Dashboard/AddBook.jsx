@@ -41,13 +41,17 @@ const AddBook = () => {
 
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
-      <div className="card w-full max-w-2xl shadow-xl bg-base-100">
+      <div
+        className="card w-full max-w-2xl shadow-xl bg-gradient-to-r from-pink-300 via-gray-700 to-purple-400
+
+"
+      >
         <div className="card-body">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
-            📚 Add New Book
+            Add New Book
           </h2>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 ">
             {/* Book Name */}
             <div>
               <label className="label">
@@ -141,7 +145,7 @@ const AddBook = () => {
 
             {/* Submit */}
             <div className="pt-2">
-              <button className="btn btn-primary w-full">
+              <button className="btn bg-purple-600 text-white w-full">
                 <IoMdAdd />
                 Add Book
               </button>

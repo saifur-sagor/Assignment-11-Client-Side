@@ -28,7 +28,7 @@ const WhyChoose = () => {
   bg-gradient-to-br from-purple-100/60 via-base-200 to-purple-200/60
   dark:from-purple-900/20 dark:via-base-200 dark:to-purple-800/20"
           >
-            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-primary/10 text-primary text-2xl mb-4 group-hover:scale-110 transition">
+            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-primary/10 text-purple-600 text-2xl mb-4 group-hover:scale-110 transition">
               <FaTruckFast />
             </div>
             <h3 className="text-lg font-semibold mb-2">Home Delivery</h3>
@@ -44,7 +44,7 @@ const WhyChoose = () => {
   bg-gradient-to-br from-purple-100/60 via-base-200 to-purple-200/60
   dark:from-purple-900/20 dark:via-base-200 dark:to-purple-800/20"
           >
-            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-primary/10 text-primary text-2xl mb-4 group-hover:scale-110 transition">
+            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-primary/10 text-purple-600 text-2xl mb-4 group-hover:scale-110 transition">
               <FaBookOpenReader />
             </div>
             <h3 className="text-lg font-semibold mb-2">Verified Libraries</h3>
@@ -60,7 +60,7 @@ const WhyChoose = () => {
   bg-gradient-to-br from-purple-100/60 via-base-200 to-purple-200/60
   dark:from-purple-900/20 dark:via-base-200 dark:to-purple-800/20"
           >
-            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-primary/10 text-primary text-2xl mb-4 group-hover:scale-110 transition">
+            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-primary/10 text-purple-600 text-2xl mb-4 group-hover:scale-110 transition">
               <FaClockRotateLeft />
             </div>
             <h3 className="text-lg font-semibold mb-2">Time Saving</h3>
@@ -76,7 +76,7 @@ const WhyChoose = () => {
   bg-gradient-to-br from-purple-100/60 via-base-200 to-purple-200/60
   dark:from-purple-900/20 dark:via-base-200 dark:to-purple-800/20"
           >
-            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-primary/10 text-primary text-2xl mb-4 group-hover:scale-110 transition">
+            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-primary/10 text-purple-600 text-2xl mb-4 group-hover:scale-110 transition">
               <MdOutlineSecurity />
             </div>
             <h3 className="text-lg font-semibold mb-2">Secure & Reliable</h3>

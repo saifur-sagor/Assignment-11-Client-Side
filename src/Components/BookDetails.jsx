@@ -26,6 +26,8 @@ const BookDetails = () => {
       phone,
       address,
       bookId: book._id,
+      name: book.name,
+      author: book.author,
       price: book.price,
     };
 

@@ -25,7 +25,7 @@ const Review = () => {
     <section className="py-20 bg-purple-50 dark:bg-purple-900">
       <div className="max-w-7xl mx-auto px-6 text-center mb-14">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          What Our <span className="text-primary">Readers Say</span>
+          What Our <span className="text-purple-600">Readers Say</span>
         </h2>
         <p className="text-gray-500 dark:text-gray-300 max-w-xl mx-auto">
           Our users love BookCourier. Here’s what they have to say about our

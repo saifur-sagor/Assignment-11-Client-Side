@@ -13,21 +13,21 @@ const writers = [
     country: "Japan",
     famousBook: "Kafka on the Shore",
     desc: "Japanese novelist known for his surreal storytelling and magical realism.",
-    img: "https://upload.wikimedia.org/wikipedia/commons/3/30/Haruki_Murakami.jpg",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjxrr1YyquFejH8ysg7nRiagh_lsSEq4LqskLtBm3Q1FClBDCFarhTYJ6iVCO1Q74-fd8xT8dwm5Y-CuviXA0utAQQGXbqIZZwdK6uNOk&s=10",
   },
   {
-    name: "Chinua Achebe",
-    country: "Nigeria",
-    famousBook: "Things Fall Apart",
-    desc: "Nigerian author, famous for his novels about African culture and history.",
-    img: "https://upload.wikimedia.org/wikipedia/commons/3/31/Chinua_Achebe.jpg",
+    name: "Kazi Nazrul Islam",
+    country: "Bangladesh",
+    famousBook: "Bidrohi, Agnibeena",
+    desc: "Bangladeshi poet, writer, and musician, famous for his revolutionary writings and poems that protested against oppression and inspired freedom, equality, and human spirit.",
+    img: "https://www.bssnews.net/bangla/assets/news_photos/2025/05/24/image-201996-1748086886.jpg",
   },
   {
-    name: "Gabriel García Márquez",
-    country: "Colombia",
+    name: "Rabindranath Tagore",
+    country: "India",
     famousBook: "One Hundred Years of Solitude",
-    desc: "Colombian novelist, pioneer of magical realism, Nobel laureate in Literature.",
-    img: "https://upload.wikimedia.org/wikipedia/commons/9/91/Gabriel_Garcia_Marquez.jpg",
+    desc: "Indian poet, writer, philosopher, and Nobel laureate, famous for his poems, songs, and stories that express human emotions, nature, and spiritual ideas.",
+    img: "https://biography.com.bd/uploads/images/202503/image_870x_67d593a68c55d.jpg",
   },
 ];
 
@@ -36,7 +36,7 @@ const WritersBlogs = () => {
     <section className="py-20 bg-base-100 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-6 text-center mb-14">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Meet Our <span className="text-primary">Famous Writers</span>
+          Meet Our <span className="text-purple-600">Famous Writers</span>
         </h2>
         <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
           Explore books from renowned international writers and discover their
