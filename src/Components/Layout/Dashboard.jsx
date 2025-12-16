@@ -3,6 +3,7 @@ import { FaBookOpen, FaShoppingCart } from "react-icons/fa";
 import { MdHomeFilled } from "react-icons/md";
 import { BiSolidBookAdd } from "react-icons/bi";
 import { Link, Outlet } from "react-router";
+import Logo from "../Logo";
 
 const Dashboard = () => {
   return (
@@ -32,10 +33,7 @@ const Dashboard = () => {
               <path d="M14 10l2 2l-2 2"></path>
             </svg>
           </label>
-          <div className=" flex justify-center items-center px-4 text-2xl font-bold">
-            <span className="text-purple-600">Book </span>Courier
-            <FaBookOpen className="text-purple-600"></FaBookOpen>
-          </div>
+          <Logo></Logo>
         </nav>
         {/* Page content here */}
         <div className="p-4">

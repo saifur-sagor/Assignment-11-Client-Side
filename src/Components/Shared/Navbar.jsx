@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import UseAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
 import defaultUser from "../../assets/UserImage.png";
+import Logo from "../Logo";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -65,14 +66,7 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <Link
-          to="/"
-          className="flex items-center justify-center text-2xl font-bold"
-        >
-          <span className="text-2xl font-bold text-purple-600">Book </span>{" "}
-          Courier <FaBookOpen className="text-purple-600 text-2xl" />
-        </Link>
-        <Link to="/"></Link>
+        <Logo></Logo>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

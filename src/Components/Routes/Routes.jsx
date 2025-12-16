@@ -10,11 +10,13 @@ import AddBook from "../Pages/Dashboard/AddBook";
 import AllBooks from "../AllBooks";
 import BookDetails from "../BookDetails";
 import MyOrders from "../Pages/Dashboard/MyOrders";
+import ErrorPage from "../ErrorPage";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
