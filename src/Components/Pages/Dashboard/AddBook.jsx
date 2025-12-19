@@ -2,8 +2,10 @@ import { useForm } from "react-hook-form";
 import { IoMdAdd } from "react-icons/io";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useAuth from "../../Hooks/useAuth";
 
 const AddBook = () => {
+  const {user}=useAuth()
   const axiosSecure = useAxiosSecure();
   const {
     register,
@@ -15,6 +17,7 @@ const AddBook = () => {
   const onSubmit = (data) => {
     // console.log("Book Data:", data);
     data.price = Number(data.price);
+    data.email = user?.email;
     axiosSecure
       .post("/books", data)
       .then((res) => {

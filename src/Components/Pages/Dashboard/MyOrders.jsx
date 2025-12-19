@@ -8,7 +8,7 @@ const MyOrders = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  // 1️⃣ fetch orders
+  //Orders fetch
   const {
     data: orders = [],
     refetch,
@@ -48,7 +48,9 @@ const MyOrders = () => {
 
   return (
     <div className="min-h-screen p-6 bg-base-200">
-      <h2 className="text-3xl font-bold text-center mb-6">My Orders</h2>
+      <h2 className="text-3xl font-bold text-center mb-6">
+        <span className="text-purple-600">My</span> Orders
+      </h2>
 
       <div className="overflow-x-auto bg-base-100 shadow rounded-lg">
         <table className="table">
@@ -57,6 +59,7 @@ const MyOrders = () => {
               <th>Sl</th>
               <th>Book Name</th>
               <th>Author</th>
+              <th>Order Date</th>
               <th>Price</th>
               <th>Status</th>
               <th>Actions</th>
@@ -69,6 +72,7 @@ const MyOrders = () => {
                 <td>{index + 1}</td>
                 <td>{order.name}</td>
                 <td>{order.author}</td>
+                <td>{order.createdAt}</td>
                 <td>{order.price} ৳</td>
 
                 <td>

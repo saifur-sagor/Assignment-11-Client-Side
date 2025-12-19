@@ -11,6 +11,7 @@ import AllBooks from "../AllBooks";
 import BookDetails from "../BookDetails";
 import MyOrders from "../Pages/Dashboard/MyOrders";
 import ErrorPage from "../ErrorPage";
+import MyBook from "../MyBooks";
 
 export const routes = createBrowserRouter([
   {
@@ -53,6 +54,14 @@ export const routes = createBrowserRouter([
       {
         path: "addBook",
         Component: AddBook,
+      },
+      {
+        path: "myBook",
+        Component: MyBook,
+      },
+      {
+        path: "editBook",
+        Component: MyBook,
       },
       {
         path: "myOrders",

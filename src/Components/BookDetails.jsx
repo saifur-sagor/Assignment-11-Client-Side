@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import useAuth from "./Hooks/useAuth";
 import useAxiosSecure from "./Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const BookDetails = () => {
   const { user } = useAuth();
@@ -46,7 +47,7 @@ const BookDetails = () => {
       // save ordered book
       axiosSecure.post("/ordered-books", orderedBookData).then(() => {
         setIsOpen(false);
-        alert("Order placed successfully!");
+        Swal.fire("Order placed successfully");
       });
     });
   };
