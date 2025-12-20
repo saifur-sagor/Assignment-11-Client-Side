@@ -30,12 +30,20 @@ const MyOrders = () => {
     });
   };
 
-  //  pay order
-  const handlePay = (id) => {
-    axiosSecure.patch(`/orders/pay/${id}`).then(() => {
-      Swal.fire("Success!", "Payment successful", "success");
-      refetch();
-    });
+  //  Order payment
+  const handlePayment = async (order) => {
+    const paymentInfo = {
+      bookId: order._id,
+      bookName: order.name,
+      bookPrice: order.price,
+      userEmail: order.userEmail,
+    };
+    const res = await axiosSecure.post(`/create-checkout-session`, paymentInfo);
+    // .then((res) => {
+    //   console.log("stripe link", res.data);
+    // });
+    console.log("link", res.data);
+    window.location.href = res.data.url;
   };
 
   if (isLoading) {
@@ -103,7 +111,7 @@ const MyOrders = () => {
                   {/* Pay button */}
                   {order.status === "pending" && (
                     <button
-                      onClick={() => handlePay(order._id)}
+                      onClick={() => handlePayment(order)}
                       className="btn btn-sm btn-success"
                     >
                       Pay Now

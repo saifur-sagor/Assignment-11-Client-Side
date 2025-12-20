@@ -12,6 +12,9 @@ import BookDetails from "../BookDetails";
 import MyOrders from "../Pages/Dashboard/MyOrders";
 import ErrorPage from "../ErrorPage";
 import MyBook from "../MyBooks";
+import UpdateBook from "../UpdateBook";
+import PaymentSuccess from "../PaymentSuccess";
+import PaymentCancel from "../PaymentCancel";
 
 export const routes = createBrowserRouter([
   {
@@ -60,12 +63,20 @@ export const routes = createBrowserRouter([
         Component: MyBook,
       },
       {
-        path: "editBook",
-        Component: MyBook,
+        path: "updateBook/:id",
+        Component: UpdateBook,
       },
       {
         path: "myOrders",
         Component: MyOrders,
+      },
+      {
+        path: "payment-success",
+        Component: PaymentSuccess,
+      },
+      {
+        path: "payment-cancelled",
+        Component: PaymentCancel,
       },
     ],
   },
