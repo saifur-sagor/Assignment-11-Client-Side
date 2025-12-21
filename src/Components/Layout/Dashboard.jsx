@@ -1,7 +1,8 @@
 import React from "react";
-import { FaBookOpen, FaShoppingCart } from "react-icons/fa";
+import { FaBookOpen, FaFileInvoice, FaShoppingCart } from "react-icons/fa";
 import { MdHomeFilled } from "react-icons/md";
 import { BiSolidBookAdd } from "react-icons/bi";
+import { TbTruckDelivery } from "react-icons/tb";
 import { FaBook } from "react-icons/fa6";
 import { LuSettings2 } from "react-icons/lu";
 import { Link, Outlet } from "react-router";
@@ -83,12 +84,12 @@ const Dashboard = () => {
               <Link to="myBook">
                 <button
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="My Book"
+                  data-tip="My Books"
                 >
                   {/* icon */}
                   <FaBook className="text-purple-600" />
 
-                  <span className="is-drawer-close:hidden">My Book</span>
+                  <span className="is-drawer-close:hidden">My Books</span>
                 </button>
               </Link>
             </li>
@@ -103,6 +104,32 @@ const Dashboard = () => {
                   <FaShoppingCart className="text-purple-600" />
 
                   <span className="is-drawer-close:hidden">My Orders</span>
+                </button>
+              </Link>
+            </li>
+            <li>
+              <Link to="invoice">
+                <button
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Invoice"
+                >
+                  {/* icon */}
+                  <FaFileInvoice className="text-purple-600" />
+
+                  <span className="is-drawer-close:hidden">Invoice</span>
+                </button>
+              </Link>
+            </li>
+            <li>
+              <Link to="librarianOrders">
+                <button
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Orders"
+                >
+                  {/* icon */}
+                  <TbTruckDelivery className="text-purple-600" />
+
+                  <span className="is-drawer-close:hidden">Orders</span>
                 </button>
               </Link>
             </li>

@@ -15,7 +15,6 @@ const AddBook = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // console.log("Book Data:", data);
     data.price = Number(data.price);
     data.email = user?.email;
     axiosSecure
@@ -32,14 +31,6 @@ const AddBook = () => {
           reset();
         }
       })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: "Failed!",
-          text: "Something went wrong",
-        });
-        console.error(error);
-      });
   };
 
   return (

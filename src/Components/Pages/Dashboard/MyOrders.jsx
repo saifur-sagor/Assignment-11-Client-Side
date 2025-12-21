@@ -39,9 +39,6 @@ const MyOrders = () => {
       userEmail: order.userEmail,
     };
     const res = await axiosSecure.post(`/create-checkout-session`, paymentInfo);
-    // .then((res) => {
-    //   console.log("stripe link", res.data);
-    // });
     console.log("link", res.data);
     window.location.href = res.data.url;
   };

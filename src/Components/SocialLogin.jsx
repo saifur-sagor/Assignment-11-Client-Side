@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const SocialLogin = () => {
   const { googleSignIn } = UseAuth();
   const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
 
@@ -34,8 +35,8 @@ const SocialLogin = () => {
 
           if (res.data.insertedId) {
             console.log("user created in the database");
-            navigate(location?.state?.pathname || "/");
           }
+          navigate(from, { replace: true });
         });
       })
       .catch((err) => {

@@ -15,6 +15,8 @@ import MyBook from "../MyBooks";
 import UpdateBook from "../UpdateBook";
 import PaymentSuccess from "../PaymentSuccess";
 import PaymentCancel from "../PaymentCancel";
+import Invoice from "../Invoice";
+import LibrarianOrders from "../LibrarianOrders";
 
 export const routes = createBrowserRouter([
   {
@@ -77,6 +79,14 @@ export const routes = createBrowserRouter([
       {
         path: "payment-cancelled",
         Component: PaymentCancel,
+      },
+      {
+        path: "invoice",
+        Component: Invoice,
+      },
+      {
+        path: "librarianOrders",
+        Component: LibrarianOrders,
       },
     ],
   },

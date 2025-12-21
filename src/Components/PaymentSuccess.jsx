@@ -1,7 +1,37 @@
-import { Link } from "react-router";
+import { Link, useNavigate, useSearchParams } from "react-router";
 import { FaCheckCircle } from "react-icons/fa";
+import useAxiosSecure from "./Hooks/useAxiosSecure";
+import { useEffect, useState } from "react";
 
 const PaymentSuccess = () => {
+  const axiosSecure = useAxiosSecure();
+  const [transactionId, setTransactionId] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  const sessionId = searchParams.get("session_id"); // Stripe session_id from URL
+
+  useEffect(() => {
+    if (sessionId) {
+      axiosSecure
+        .get(`/stripe-session/${sessionId}`) // নতুন backend route
+        .then((res) => {
+          setTransactionId(res.data.transactionId); // transactionId show করার জন্য
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } else {
+      setLoading(false);
+    }
+  }, [sessionId, axiosSecure]);
+
+  if (loading)
+    return <p className="text-center mt-10">Processing payment...</p>;
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-400 to-indigo-500 px-4">
       <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">

@@ -8,6 +8,9 @@ import axios from "axios";
 const Register = () => {
   const { registerUser, updateUserProfile } = UseAuth();
   const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  console.log(from);
+
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
   const {
@@ -53,7 +56,7 @@ const Register = () => {
           };
           updateUserProfile(userProfile)
             .then(() => {
-              navigate(location.state || "/");
+              navigate(from, { replace: true });
             })
             .catch((err) => {
               console.log(err);

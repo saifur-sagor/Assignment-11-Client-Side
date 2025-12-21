@@ -40,6 +40,8 @@ const BookDetails = () => {
       author: book.author,
       price: book.price,
       userEmail: user.email,
+      userName: user.displayName,
+      ownerEmail: book.email,
     };
 
     // save order
