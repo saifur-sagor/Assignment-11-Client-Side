@@ -53,6 +53,22 @@ const BookDetails = () => {
       });
     });
   };
+  const handleWishedBook = () => {
+    const wishedBookData = {
+      bookId: book._id,
+      name: book.name,
+      image: book.image,
+      author: book.author,
+      price: book.price,
+      userEmail: user.email,
+      userName: user.displayName,
+      ownerEmail: book.email,
+    };
+
+    axiosSecure.post("/wish-books", wishedBookData).then(() => {
+      Swal.fire("Successfully save the book wish List");
+    });
+  };
 
   if (!book) {
     return (
@@ -106,7 +122,10 @@ const BookDetails = () => {
               >
                 Order Now
               </button>
-              <button className="btn bg-purple-600 text-white flex-1">
+              <button
+                onClick={handleWishedBook}
+                className="btn bg-purple-600 text-white flex-1"
+              >
                 Wishlist
               </button>
             </div>

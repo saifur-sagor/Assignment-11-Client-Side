@@ -20,6 +20,7 @@ import LibrarianOrders from "../LibrarianOrders";
 import UsersManagement from "../UserManagement";
 import AdminRoute from "./AdminROute";
 import BookManage from "../BookManage";
+import Statics from "../Statics";
 
 export const routes = createBrowserRouter([
   {
@@ -59,6 +60,14 @@ export const routes = createBrowserRouter([
     ),
 
     children: [
+      {
+        index: true,
+        Component: Statics,
+      },
+      {
+        path: "statics",
+        Component: Statics,
+      },
       {
         path: "addBook",
         Component: AddBook,

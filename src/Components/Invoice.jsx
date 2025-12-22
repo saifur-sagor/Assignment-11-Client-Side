@@ -35,8 +35,8 @@ const Invoice = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
-      <h2 className="text-3xl font-bold text-purple-600 mb-6 text-center">
-        Paid Orders / Invoice
+      <h2 className="text-3xl font-bold  mb-6 text-center">
+        <span className="text-purple-600">Paid </span>Orders
       </h2>
 
       <div className="overflow-x-auto">
@@ -58,10 +58,6 @@ const Invoice = () => {
                 <td>{order.transactionId}</td>
                 <td>
                   {order.paidAt}
-                  {/* {new Date(order.paidAt).toLocaleString("en-BD", {
-                    dateStyle: "medium",
-                    timeStyle: "short",
-                  })} */}
                 </td>
                 <td className="font-semibold">৳ {order.price}</td>
               </tr>

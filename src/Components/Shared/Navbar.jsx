@@ -1,6 +1,5 @@
-import React from "react";
-import { FaBookOpen, FaUserCircle } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useLocation, useNavigate } from "react-router";
 import UseAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
 import defaultUser from "../../assets/UserImage.png";
@@ -10,6 +9,20 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, logOut } = UseAuth();
+  const activeRoute = ({ isActive }) =>
+    isActive
+      ? "text-indigo-400 font-semibold underline underline-offset-4"
+      : "text-black hover:text-indigo-300";
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
+
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -52,14 +65,20 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/" className={activeRoute}>
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="allBooks">Book</Link>
+              <NavLink to="allBooks" className={activeRoute}>
+                Books
+              </NavLink>
             </li>
             {user ? (
               <li>
-                <Link to="dashBoard">Dashboard</Link>
+                <NavLink to="dashBoard" className={activeRoute}>
+                  Dashboard
+                </NavLink>
               </li>
             ) : (
               ""
@@ -71,15 +90,36 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/" className={activeRoute}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="allBooks">Books</Link>
+            <NavLink to="allBooks" className={activeRoute}>
+              Books
+            </NavLink>
           </li>
-          <li>{user ? <Link to="dashBoard">Dashboard</Link> : ""}</li>
+          <li>
+            {user ? (
+              <NavLink to="dashBoard" className={activeRoute}>
+                Dashboard
+              </NavLink>
+            ) : (
+              ""
+            )}
+          </li>
         </ul>
       </div>
       <div className="navbar-end">
+        {/* theme toggle  */}
+        <div className="text-white">
+          <input
+            onChange={(e) => handleTheme(e.target.checked)}
+            type="checkbox"
+            defaultChecked={localStorage.getItem("theme") === "dark"}
+            className="toggle bg-white mr-2"
+          />
+        </div>
         <div className="mr-2">
           <img
             title={user?.displayName || "User"}

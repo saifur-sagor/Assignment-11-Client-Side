@@ -18,7 +18,7 @@ const AllBooks = () => {
   }, [searchText, sortOrder, axiosSecure]);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="p-6">
       <h2 className="text-4xl font-bold text-center mb-8 text-purple-600">
         All Books : {books.length}
       </h2>

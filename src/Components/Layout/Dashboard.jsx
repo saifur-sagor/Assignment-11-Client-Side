@@ -1,15 +1,19 @@
 import React from "react";
+import { Link, Outlet } from "react-router";
 import { FaFileInvoice, FaShoppingCart, FaUsers } from "react-icons/fa";
 import { MdHomeFilled } from "react-icons/md";
 import { BiSolidBookAdd } from "react-icons/bi";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaBookTanakh } from "react-icons/fa6";
+import { ImProfile } from "react-icons/im";
+import { VscGraphLine } from "react-icons/vsc";
 import { FaBook } from "react-icons/fa6";
-import { LuSettings2 } from "react-icons/lu";
-import { Link, Outlet } from "react-router";
 import Logo from "../Logo";
+import useRole from "../Hooks/useRole";
 
 const Dashboard = () => {
+  const { role } = useRole();
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -37,14 +41,16 @@ const Dashboard = () => {
               <path d="M14 10l2 2l-2 2"></path>
             </svg>
           </label>
-          <Logo></Logo>
+          <Logo />
         </nav>
-        {/* Page content here */}
+
+        {/* Page content */}
         <div className="p-4">
-          <Outlet></Outlet>
+          <Outlet />
         </div>
       </div>
 
+      {/* Sidebar */}
       <div className="drawer-side is-drawer-close:overflow-visible">
         <label
           htmlFor="my-drawer-4"
@@ -52,125 +58,141 @@ const Dashboard = () => {
           className="drawer-overlay"
         ></label>
         <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
-          {/* Sidebar content here */}
           <ul className="menu w-full grow">
-            {/* List item */}
+            {/* Homepage always */}
             <li>
               <Link to="/">
                 <button
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                   data-tip="Homepage"
                 >
-                  {/* Home icon */}
                   <MdHomeFilled className="text-purple-600" />
                   <span className="is-drawer-close:hidden">Homepage</span>
                 </button>
               </Link>
             </li>
-            {/* Add Book */}
+            {/* statics */}
             <li>
-              <Link to="addBook">
+              <Link to="statics">
                 <button
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Add Book"
+                  data-tip="Statics"
                 >
-                  {/* icon */}
-                  <BiSolidBookAdd className="text-purple-600" />
-
-                  <span className="is-drawer-close:hidden">Add Book</span>
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="myBook">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="My Books"
-                >
-                  {/* icon */}
-                  <FaBook className="text-purple-600" />
-
-                  <span className="is-drawer-close:hidden">My Books</span>
-                </button>
-              </Link>
-            </li>
-            {/* my orders */}
-            <li>
-              <Link to="myOrders">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="My Orders"
-                >
-                  {/* icon */}
-                  <FaShoppingCart className="text-purple-600" />
-
-                  <span className="is-drawer-close:hidden">My Orders</span>
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="invoice">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Invoice"
-                >
-                  {/* icon */}
-                  <FaFileInvoice className="text-purple-600" />
-
-                  <span className="is-drawer-close:hidden">Invoice</span>
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="librarianOrders">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Orders"
-                >
-                  {/* icon */}
-                  <TbTruckDelivery className="text-purple-600" />
-
-                  <span className="is-drawer-close:hidden">Orders</span>
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="bookManage">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Book Manage"
-                >
-                  {/* icon */}
-                  <FaBookTanakh className="text-purple-600" />
-                  <span className="is-drawer-close:hidden">Book Manage</span>
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="userManage">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="User Manage"
-                >
-                  {/* icon */}
-                  <FaUsers className="text-purple-600" />
-
-                  <span className="is-drawer-close:hidden">User Manage</span>
+                  <VscGraphLine className="text-purple-600" />
+                  <span className="is-drawer-close:hidden">Statics</span>
                 </button>
               </Link>
             </li>
 
-            {/* List item */}
-            <li>
-              <button
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Settings"
-              >
-                {/* Settings icon */}
+            {/* Role based links */}
+            {role === "user" && (
+              <>
+                <li>
+                  <Link to="myOrders">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="My Orders"
+                    >
+                      <FaShoppingCart className="text-purple-600" />
+                      <span className="is-drawer-close:hidden">My Orders</span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="invoice">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Invoice"
+                    >
+                      <FaFileInvoice className="text-purple-600" />
+                      <span className="is-drawer-close:hidden">Invoice</span>
+                    </button>
+                  </Link>
+                </li>
+              </>
+            )}
 
-                <LuSettings2 className="text-purple-600" />
-                <span className="is-drawer-close:hidden">Settings</span>
-              </button>
+            {role === "Librarian" && (
+              <>
+                <li>
+                  <Link to="addBook">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Add Book"
+                    >
+                      <BiSolidBookAdd className="text-purple-600" />
+                      <span className="is-drawer-close:hidden">Add Book</span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="myBook">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="My Books"
+                    >
+                      <FaBook className="text-purple-600" />
+                      <span className="is-drawer-close:hidden">My Books</span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="librarianOrders">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Orders"
+                    >
+                      <TbTruckDelivery className="text-purple-600" />
+                      <span className="is-drawer-close:hidden">Orders</span>
+                    </button>
+                  </Link>
+                </li>
+              </>
+            )}
+
+            {role === "Admin" && (
+              <>
+                <li>
+                  <Link to="bookManage">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Book Manage"
+                    >
+                      <FaBookTanakh className="text-purple-600" />
+                      <span className="is-drawer-close:hidden">
+                        Book Manage
+                      </span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="userManage">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="User Manage"
+                    >
+                      <FaUsers className="text-purple-600" />
+                      <span className="is-drawer-close:hidden">
+                        User Manage
+                      </span>
+                    </button>
+                  </Link>
+                </li>
+              </>
+            )}
+
+            {/* My Profile */}
+
+            <li>
+              <Link to="profile">
+                <button
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="My Profile"
+                >
+                  <ImProfile className="text-purple-600" />
+                  <span className="is-drawer-close:hidden">My Profile</span>
+                </button>
+              </Link>
             </li>
           </ul>
         </div>
