@@ -21,6 +21,8 @@ import UsersManagement from "../UserManagement";
 import AdminRoute from "./AdminROute";
 import BookManage from "../BookManage";
 import Statics from "../Statics";
+import MyWish from "../MyWish";
+import MyProfile from "../MyProfile";
 
 export const routes = createBrowserRouter([
   {
@@ -85,6 +87,10 @@ export const routes = createBrowserRouter([
         Component: MyOrders,
       },
       {
+        path: "wishList",
+        Component: MyWish,
+      },
+      {
         path: "payment-success",
         Component: PaymentSuccess,
       },
@@ -99,6 +105,10 @@ export const routes = createBrowserRouter([
       {
         path: "librarianOrders",
         Component: LibrarianOrders,
+      },
+      {
+        path: "profile",
+        Component: MyProfile,
       },
       {
         path: "userManage",

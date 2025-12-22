@@ -35,6 +35,7 @@ const Invoice = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <title>Invoice</title>
       <h2 className="text-3xl font-bold  mb-6 text-center">
         <span className="text-purple-600">Paid </span>Orders
       </h2>

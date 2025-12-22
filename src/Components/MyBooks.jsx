@@ -18,6 +18,7 @@ const MyBook = () => {
   }, [user, axiosSecure]);
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <title>My Books</title>
       <h2 className="text-3xl font-bold mb-6 text-purple-600 text-center">
         My Books
       </h2>

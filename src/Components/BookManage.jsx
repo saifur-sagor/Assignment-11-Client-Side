@@ -74,6 +74,7 @@ const BookManage = () => {
 
   return (
     <div className="p-6">
+      <title>Book Manage</title>
       <h2 className="text-4xl  text-center font-bold mb-4">
         <span className="text-purple-600">Manage</span> Books
       </h2>

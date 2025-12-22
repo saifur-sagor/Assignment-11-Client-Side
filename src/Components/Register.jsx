@@ -68,7 +68,8 @@ const Register = () => {
       });
   };
   return (
-    <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+    <div className="card bg-gradient-to-r from-pink-300 via-gray-700 to-purple-400 w-full mx-auto max-w-sm shrink-0 shadow-2xl my-10">
+      <title>Register</title>
       <div className="card-body">
         <h2 className="text-center text-2xl font-bold">
           Welcome to <span className="text-purple-600">Book</span>Courier

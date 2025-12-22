@@ -34,6 +34,7 @@ const PaymentSuccess = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-400 to-indigo-500 px-4">
+      <title>Payment success</title>
       <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
         {/* Success Icon */}
         <div className="flex justify-center mb-4">

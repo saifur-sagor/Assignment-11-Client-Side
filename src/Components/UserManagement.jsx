@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./Hooks/useAxiosSecure";
 import { FiShieldOff } from "react-icons/fi";
 import { FaUserShield } from "react-icons/fa6";
-import { FaBook } from "react-icons/fa"; 
+import { FaBook } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const UsersManagement = () => {
@@ -88,6 +88,7 @@ const UsersManagement = () => {
 
   return (
     <div>
+      <title>User Manage</title>
       <h1 className="text-4xl font-bold text-center">
         <span className="text-purple-600">User</span> Management {users.length}
       </h1>

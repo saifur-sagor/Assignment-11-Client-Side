@@ -80,6 +80,7 @@ const BookDetails = () => {
 
   return (
     <div className="min-h-screen bg-base-200 p-6">
+      <title>Book Courier Details</title>
       <div className="max-w-5xl mx-auto bg-base-100 shadow-xl rounded-lg overflow-hidden md:flex">
         {/* Book Image */}
         <div className="md:w-1/2">

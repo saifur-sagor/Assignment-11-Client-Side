@@ -6,6 +6,7 @@ import Footer from "../Shared/Footer";
 const MainLayout = () => {
   return (
     <div>
+      <title>Book Courier Homepage</title>
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>

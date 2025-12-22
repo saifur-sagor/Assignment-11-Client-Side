@@ -56,6 +56,7 @@ const UpdateBook = () => {
 
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
+      <title>Update</title>
       <div className="card w-full max-w-2xl shadow-xl bg-gradient-to-r from-pink-300 via-gray-700 to-purple-400">
         <div className="card-body">
           <h2 className="text-2xl font-bold text-purple-400 text-center mb-4">

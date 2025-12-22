@@ -48,6 +48,7 @@ const Statics = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
+      <title>Statics</title>
       {/* Users Card */}
       <div className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-6 rounded-xl shadow-lg flex items-center gap-4">
         <FaUsers className="text-4xl" />

@@ -30,7 +30,8 @@ const Login = () => {
       });
   };
   return (
-    <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+    <div className="card bg-gradient-to-r from-pink-300 via-gray-700 to-purple-400 w-full mx-auto max-w-sm shrink-0 shadow-2xl my-10">
+      <title>Login</title>
       <div className="card-body">
         <h3 className="text-center text-3xl">Welcome Back</h3>
         <p className="text-center ">Please Register</p>

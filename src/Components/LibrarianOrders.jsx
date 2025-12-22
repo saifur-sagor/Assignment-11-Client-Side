@@ -48,7 +48,8 @@ const LibrarianOrders = () => {
     );
 
   return (
-    <div className="p-6 min-h-screen bg-base-200">
+    <div className="p-6 min-h-screen bg-base-200">      
+    <title>Librarian Orders</title>
       <h2 className="text-3xl font-bold text-center text-purple-600 mb-6">
         My Book Orders
       </h2>

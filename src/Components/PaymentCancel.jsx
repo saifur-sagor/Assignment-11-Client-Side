@@ -4,6 +4,7 @@ import { FaTimesCircle } from "react-icons/fa";
 const PaymentCancel = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-red-500 via-orange-400 to-pink-500 px-4">
+      <title>Payment cancel</title>
       <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
         {/* Cancel Icon */}
         <div className="flex justify-center mb-4">

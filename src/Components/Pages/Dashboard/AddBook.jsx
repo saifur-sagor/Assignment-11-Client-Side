@@ -5,7 +5,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 
 const AddBook = () => {
-  const {user}=useAuth()
+  const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const {
     register,
@@ -17,29 +17,23 @@ const AddBook = () => {
   const onSubmit = (data) => {
     data.price = Number(data.price);
     data.email = user?.email;
-    axiosSecure
-      .post("/books", data)
-      .then((res) => {
-        if (res.data.insertedId || res.data.success) {
-          Swal.fire({
-            icon: "success",
-            title: "Book Added!",
-            text: "New book added successfully",
-            timer: 1500,
-            showConfirmButton: false,
-          });
-          reset();
-        }
-      })
+    axiosSecure.post("/books", data).then((res) => {
+      if (res.data.insertedId || res.data.success) {
+        Swal.fire({
+          icon: "success",
+          title: "Book Added!",
+          text: "New book added successfully",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+        reset();
+      }
+    });
   };
 
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
-      <div
-        className="card w-full max-w-2xl shadow-xl bg-gradient-to-r from-pink-300 via-gray-700 to-purple-400
-
-"
-      >
+      <div className="card w-full max-w-2xl shadow-xl bg-gradient-to-r from-pink-300 via-gray-700 to-purple-400">
         <div className="card-body">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
             Add New Book

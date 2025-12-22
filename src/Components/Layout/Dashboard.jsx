@@ -6,6 +6,7 @@ import { BiSolidBookAdd } from "react-icons/bi";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaBookTanakh } from "react-icons/fa6";
 import { ImProfile } from "react-icons/im";
+import { SiWish } from "react-icons/si";
 import { VscGraphLine } from "react-icons/vsc";
 import { FaBook } from "react-icons/fa6";
 import Logo from "../Logo";
@@ -16,6 +17,7 @@ const Dashboard = () => {
 
   return (
     <div className="drawer lg:drawer-open">
+      <title>Book Courier Dashboard</title>
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         {/* Navbar */}
@@ -95,6 +97,17 @@ const Dashboard = () => {
                     >
                       <FaShoppingCart className="text-purple-600" />
                       <span className="is-drawer-close:hidden">My Orders</span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="wishList">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Wish List"
+                    >
+                      <SiWish className="text-purple-600" />
+                      <span className="is-drawer-close:hidden">Wish List</span>
                     </button>
                   </Link>
                 </li>
