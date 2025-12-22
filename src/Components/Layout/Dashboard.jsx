@@ -1,8 +1,9 @@
 import React from "react";
-import { FaBookOpen, FaFileInvoice, FaShoppingCart } from "react-icons/fa";
+import { FaFileInvoice, FaShoppingCart, FaUsers } from "react-icons/fa";
 import { MdHomeFilled } from "react-icons/md";
 import { BiSolidBookAdd } from "react-icons/bi";
 import { TbTruckDelivery } from "react-icons/tb";
+import { FaBookTanakh } from "react-icons/fa6";
 import { FaBook } from "react-icons/fa6";
 import { LuSettings2 } from "react-icons/lu";
 import { Link, Outlet } from "react-router";
@@ -130,6 +131,31 @@ const Dashboard = () => {
                   <TbTruckDelivery className="text-purple-600" />
 
                   <span className="is-drawer-close:hidden">Orders</span>
+                </button>
+              </Link>
+            </li>
+            <li>
+              <Link to="bookManage">
+                <button
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Book Manage"
+                >
+                  {/* icon */}
+                  <FaBookTanakh className="text-purple-600" />
+                  <span className="is-drawer-close:hidden">Book Manage</span>
+                </button>
+              </Link>
+            </li>
+            <li>
+              <Link to="userManage">
+                <button
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="User Manage"
+                >
+                  {/* icon */}
+                  <FaUsers className="text-purple-600" />
+
+                  <span className="is-drawer-close:hidden">User Manage</span>
                 </button>
               </Link>
             </li>

@@ -7,14 +7,12 @@ import { RxUpdate } from "react-icons/rx";
 import { useEffect } from "react";
 
 const UpdateBook = () => {
-  const { id } = useParams(); // 🔹 URL থেকে book id
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
-
-  // 🔹 react-hook-form setup
   const { register, handleSubmit, reset } = useForm();
 
-  // 🔹 single book fetch
+  //single book fetch
   const { data: book, isLoading } = useQuery({
     queryKey: ["book", id],
     queryFn: async () => {
@@ -23,7 +21,7 @@ const UpdateBook = () => {
     },
   });
 
-  // ✅ book data আসলেই form auto-fill হবে
+  //form auto-fill
   useEffect(() => {
     if (book) {
       reset({
@@ -39,13 +37,10 @@ const UpdateBook = () => {
 
   // 🔹 update handler
   const handleUpdate = (data) => {
-    data.price = Number(data.price); // 🔹 price number বানানো
-
+    data.price = Number(data.price); // 
     axiosSecure.patch(`/books/${id}`, data).then((res) => {
       if (res.data.modifiedCount > 0) {
         Swal.fire("Updated!", "Book updated successfully", "success");
-
-        // 🔹 update শেষ হলে My Book page এ পাঠানো
         navigate("/dashBoard/myBook");
       }
     });
@@ -67,7 +62,7 @@ const UpdateBook = () => {
             Update Your Book
           </h2>
 
-          {/* 🔹 Form */}
+          {/* Form */}
           <form onSubmit={handleSubmit(handleUpdate)} className="space-y-4">
             {/* Book Name */}
             <input

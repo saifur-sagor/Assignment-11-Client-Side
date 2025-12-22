@@ -17,6 +17,9 @@ import PaymentSuccess from "../PaymentSuccess";
 import PaymentCancel from "../PaymentCancel";
 import Invoice from "../Invoice";
 import LibrarianOrders from "../LibrarianOrders";
+import UsersManagement from "../UserManagement";
+import AdminRoute from "./AdminROute";
+import BookManage from "../BookManage";
 
 export const routes = createBrowserRouter([
   {
@@ -87,6 +90,22 @@ export const routes = createBrowserRouter([
       {
         path: "librarianOrders",
         Component: LibrarianOrders,
+      },
+      {
+        path: "userManage",
+        element: (
+          <AdminRoute>
+            <UsersManagement></UsersManagement>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "bookManage",
+        element: (
+          <AdminRoute>
+            <BookManage></BookManage>
+          </AdminRoute>
+        ),
       },
     ],
   },

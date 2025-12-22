@@ -7,19 +7,42 @@ const AllBooks = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const [books, setBooks] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [sortOrder, setSortOrder] = useState("");
 
   useEffect(() => {
     axiosSecure
-      .get("/books")
+      .get(`/books?search=${searchText}&sort=${sortOrder}`)
       .then((res) => setBooks(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [searchText, sortOrder, axiosSecure]);
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h2 className="text-4xl font-bold text-center mb-8 text-purple-600">
-        All Books
+        All Books : {books.length}
       </h2>
+
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4 my-10">
+        <label className="input">
+          <input
+            onChange={(e) => setSearchText(e.target.value)}
+            type="search"
+            className="grow"
+            placeholder="Search Book Name"
+          />
+        </label>
+
+        {/* Sort Dropdown */}
+        <select
+          className="select select-bordered w-full max-w-xs"
+          onChange={(e) => setSortOrder(e.target.value)}
+        >
+          <option value="">Default Sort</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+        </select>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {books.map((book) => (
           <div
