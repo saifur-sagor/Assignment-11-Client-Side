@@ -21,7 +21,7 @@ const Dashboard = () => {
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         {/* Navbar */}
-        <nav className="navbar w-full bg-base-300">
+        <nav className="navbar w-full bg-purple-300">
           <label
             htmlFor="my-drawer-4"
             aria-label="open sidebar"
@@ -59,7 +59,7 @@ const Dashboard = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
+        <div className="flex min-h-full flex-col items-start bg-purple-200 is-drawer-close:w-14 is-drawer-open:w-64">
           <ul className="menu w-full grow">
             {/* Homepage always */}
             <li>

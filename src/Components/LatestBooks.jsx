@@ -20,11 +20,11 @@ const LatestBooks = () => {
       <h2 className="text-4xl font-bold text-center mb-8 text-purple-600">
         Latest Books
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {books.map((book) => (
           <div
             key={book._id}
-            className="card bg-gradient-to-tr from-purple-100 via-pink-100 to-yellow-100 shadow-lg hover:shadow-2xl rounded-xl cursor-pointer transition transform hover:-translate-y-1"
+            className="card bg-gradient-to-tr from-purple-100 via-pink-100 to-yellow-100 dark:from-purple-800/20 dark:via-base-200 dark:to-yellow-800/20 shadow-lg hover:shadow-2xl rounded-xl cursor-pointer transition transform hover:-translate-y-1"
             onClick={() => navigate(`/books/${book._id}`)}
           >
             <figure className="overflow-hidden rounded-t-xl">
@@ -38,7 +38,7 @@ const LatestBooks = () => {
               <h3 className="card-title text-lg font-bold text-purple-700">
                 {book.name}
               </h3>
-              <p className="text-gray-700 font-medium">Author: {book.author}</p>
+              <p className="text-gray-700 font-medium dark:text-white">Author: {book.author}</p>
               <div className="flex justify-between items-center mt-2">
                 <span className="badge bg-purple-600 text-white px-3 py-1">
                   {book.price} ৳
@@ -53,7 +53,7 @@ const LatestBooks = () => {
                   {book.status === "available" ? "Publish" : "Unpublish"}
                 </span>
               </div>
-              <p className="text-gray-600 mt-2 line-clamp-3">
+              <p className="text-gray-600 mt-2 line-clamp-3 dark:text-gray-400">
                 {book.description || "No description available."}
               </p>
             </div>

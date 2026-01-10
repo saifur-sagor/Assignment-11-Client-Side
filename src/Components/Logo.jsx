@@ -13,7 +13,7 @@ const Logo = () => {
       {/* Text */}
       <h1 className="text-2xl font-extrabold tracking-wide">
         <span className="text-purple-600">Book</span>{" "}
-        <span className="text-gray-800">Courier</span>
+        <span className="text-gray-800 dark:text-white">Courier</span>
       </h1>
     </Link>
   );
