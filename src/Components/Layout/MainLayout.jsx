@@ -7,7 +7,9 @@ const MainLayout = () => {
   return (
     <div>
       <title>Book Courier Homepage</title>
+      <div>
       <Navbar></Navbar>
+      </div>
       <Outlet></Outlet>
       <Footer></Footer>
     </div>

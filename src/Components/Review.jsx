@@ -22,7 +22,7 @@ const reviews = [
 
 const Review = () => {
   return (
-    <section className="py-20 bg-purple-50 dark:bg-purple-900">
+    <section className="py-10 px-6 bg-purple-50 dark:bg-purple-900">
       <div className="max-w-7xl mx-auto px-6 text-center mb-14">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           What Our <span className="text-purple-600">Readers Say</span>

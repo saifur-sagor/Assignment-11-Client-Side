@@ -79,7 +79,7 @@ const BookDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-base-200 p-6">
+    <div className="bg-base-200 p-6">
       <title>Book Courier Details</title>
       <div className="max-w-5xl mx-auto bg-base-100 shadow-xl rounded-lg overflow-hidden md:flex">
         {/* Book Image */}
@@ -95,8 +95,8 @@ const BookDetails = () => {
         <div className="md:w-1/2 p-6 flex flex-col justify-between">
           <div className="space-y-4">
             <h2 className="text-3xl font-bold">{book.name}</h2>
-            <p className="text-gray-600 font-medium">Author: {book.author}</p>
-            <p className="text-gray-800 font-semibold text-lg">
+            <p className="text-gray-600 font-medium dark:text-gray-400">Author: {book.author}</p>
+            <p className="text-gray-800 font-semibold text-lg dark:text-gray-400">
               Price: {book.price} ৳
             </p>
             <p
@@ -107,9 +107,9 @@ const BookDetails = () => {
               {book.status === "available" ? "Publish" : "Unpublish"}
             </p>
             {book.description && (
-              <p className="text-gray-700">{book.description}</p>
+              <p className="text-gray-700 dark:text-gray-400">{book.description}</p>
             )}
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-500 text-sm dark:text-gray-400">
               Added on: {new Date(book.createdAt).toLocaleDateString()}
             </p>
           </div>

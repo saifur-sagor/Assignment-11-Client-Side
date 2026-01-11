@@ -17,10 +17,10 @@ const LatestBooks = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-4xl font-bold text-center mb-8 text-purple-600">
-        Latest Books
+      <h2 className="text-4xl font-bold text-center mb-8 ">
+        Latest <span className="text-purple-600">Books</span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
         {books.map((book) => (
           <div
             key={book._id}
@@ -38,7 +38,9 @@ const LatestBooks = () => {
               <h3 className="card-title text-lg font-bold text-purple-700">
                 {book.name}
               </h3>
-              <p className="text-gray-700 font-medium dark:text-white">Author: {book.author}</p>
+              <p className="text-gray-700 font-medium dark:text-white">
+                Author: {book.author}
+              </p>
               <div className="flex justify-between items-center mt-2">
                 <span className="badge bg-purple-600 text-white px-3 py-1">
                   {book.price} ৳

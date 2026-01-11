@@ -5,6 +5,9 @@ import CustomerReviews from "../../Review";
 import WritersBlogs from "../../WritersBlogs";
 import LatestBooks from "../../LatestBooks";
 import Work from "../../Work";
+import DeliveryMan from "../../DeliveryMan";
+import PricingInfo from "../../PricingInfo";
+import SafetySecurity from "../../SafetySecurity";
 
 const Home = () => {
   return (
@@ -13,6 +16,9 @@ const Home = () => {
       <LatestBooks></LatestBooks>
       <Work></Work>
       <WhyChoose></WhyChoose>
+      <SafetySecurity></SafetySecurity>
+      <PricingInfo></PricingInfo>
+      <DeliveryMan></DeliveryMan>
       <CustomerReviews></CustomerReviews>
       <WritersBlogs></WritersBlogs>
     </div>
