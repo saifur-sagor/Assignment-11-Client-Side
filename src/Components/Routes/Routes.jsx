@@ -23,6 +23,9 @@ import BookManage from "../BookManage";
 import Statics from "../Statics";
 import MyWish from "../MyWish";
 import MyProfile from "../MyProfile";
+import AboutUs from "../AboutUs";
+import Community from "../Community";
+
 
 export const routes = createBrowserRouter([
   {
@@ -37,6 +40,14 @@ export const routes = createBrowserRouter([
       {
         path: "allBooks",
         Component: AllBooks,
+      },
+      {
+        path: "about",
+        Component: AboutUs,
+      },
+      {
+        path: "community",
+        Component: Community,
       },
       {
         path: "books/:id",

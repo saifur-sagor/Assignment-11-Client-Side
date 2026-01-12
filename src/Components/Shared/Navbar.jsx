@@ -74,6 +74,20 @@ const Navbar = () => {
                 Books
               </NavLink>
             </li>
+            <li>
+              <NavLink to="about" className={activeRoute}>
+                About Us
+              </NavLink>
+            </li>
+            <li>
+              {user ? (
+                <NavLink to="community" className={activeRoute}>
+                  Community
+                </NavLink>
+              ) : (
+                ""
+              )}
+            </li>
             {user ? (
               <li>
                 <NavLink to="dashBoard" className={activeRoute}>
@@ -98,6 +112,20 @@ const Navbar = () => {
             <NavLink to="allBooks" className={activeRoute}>
               Books
             </NavLink>
+          </li>
+          <li>
+            <NavLink to="about" className={activeRoute}>
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            {user ? (
+              <NavLink to="community" className={activeRoute}>
+                Community
+              </NavLink>
+            ) : (
+              ""
+            )}
           </li>
           <li>
             {user ? (

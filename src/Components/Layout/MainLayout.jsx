@@ -7,10 +7,10 @@ const MainLayout = () => {
   return (
     <div>
       <title>Book Courier Homepage</title>
-      <div>
       <Navbar></Navbar>
-      </div>
+      <div className="pt-17">
       <Outlet></Outlet>
+      </div>
       <Footer></Footer>
     </div>
   );
