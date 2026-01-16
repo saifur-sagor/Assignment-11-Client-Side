@@ -72,8 +72,8 @@ const BookDetails = () => {
 
   if (!book) {
     return (
-      <div className="min-h-screen flex items-center justify-center text-xl font-semibold">
-        Loading book details...
+      <div className="text-center py-20">
+        <span className="loading loading-spinner loading-lg text-purple-600"></span>
       </div>
     );
   }

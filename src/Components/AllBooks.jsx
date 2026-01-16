@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router";
 import useAxiosSecure from "./Hooks/useAxiosSecure";
+import useAuth from "./Hooks/useAuth";
 
 const AllBooks = () => {
+  const { loading } = useAuth();
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const [books, setBooks] = useState([]);
@@ -16,7 +18,13 @@ const AllBooks = () => {
       .then((res) => setBooks(res.data))
       .catch((err) => console.error(err));
   }, [searchText, sortOrder, axiosSecure]);
-
+  if (loading) {
+    return (
+      <div className="text-center py-20">
+        <span className="loading loading-spinner loading-lg text-purple-600"></span>
+      </div>
+    );
+  }
   return (
     <div className="p-6">
       <title>Book Courier All Books</title>
@@ -44,7 +52,7 @@ const AllBooks = () => {
           <option value="high">Price: High to Low</option>
         </select>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {books.map((book) => (
           <div
             key={book._id}

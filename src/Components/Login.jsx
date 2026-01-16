@@ -4,10 +4,11 @@ import UseAuth from "./Hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
+import { FaUserCircle, FaEnvelope, FaLock } from "react-icons/fa";
 
 const Login = () => {
   const { signInUser } = UseAuth();
-  const { register, handleSubmit, setValue } = useForm(); 
+  const { register, handleSubmit, setValue } = useForm();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -33,79 +34,105 @@ const Login = () => {
       });
   };
 
-  //demo handler
   const handleDemoLogin = (email, password) => {
     setValue("email", email);
     setValue("password", password);
-    // from filed and login
     handleSubmit(handleSignIn)({ email, password });
   };
 
   return (
-    <div className="card bg-gradient-to-r from-pink-300 via-gray-700 to-purple-400 w-full mx-auto max-w-sm shrink-0 shadow-2xl my-10 text-white">
-      <title>Login</title>
-      <div className="card-body">
-        <h3 className="text-center text-3xl font-bold">Welcome Back</h3>
-        <p className="text-center text-gray-200">Please Login to continue</p>
-        
-        <form onSubmit={handleSubmit(handleSignIn)}>
-          <fieldset className="fieldset">
-            <label className="label text-white">Email</label>
-            <input
-              type="email"
-              {...register("email", { required: true })}
-              className="input text-black bg-white"
-              placeholder="Email"
-            />
-            <label className="label text-white">Password</label>
-            <input
-              type="password"
-              {...register("password", { required: true })}
-              className="input text-black bg-white"
-              placeholder="Password"
-            />
-            <div className="mt-1">
-              <a className="link link-hover text-sm">Forgot password?</a>
-            </div>
-            <button className="btn btn-neutral w-full mt-4 border-none bg-slate-800 hover:bg-black transition-all">
-              Login
-            </button>
-          </fieldset>
-        </form>
-
-        <div className="divider divider-neutral text-xs opacity-50 uppercase">Or Login as Demo</div>
-        
-        {/* Demo Buttons */}
-        <div className="flex flex-col gap-2">
-          <div className="grid grid-cols-3 gap-2">
-            <button 
-              onClick={() => handleDemoLogin("admin@test.com", "123456As!")}
-              className="btn btn-xs btn-error text-[10px]"
-            >Admin</button>
-            <button 
-              onClick={() => handleDemoLogin("librarian@test.com", "123456As!")}
-              className="btn btn-xs btn-warning text-[10px]"
-            >Librarian</button>
-            <button 
-              onClick={() => handleDemoLogin("user@test.com", "123456As!")}
-              className="btn btn-xs btn-info text-[10px]"
-            >User</button>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#2D1B36] via-[#1F2451] to-[#637CB5] p-4">
+      {/* গ্লাস কার্ড */}
+      <div className="w-full max-w-[400px] bg-white/10 backdrop-blur-xl rounded-[3rem] p-10 shadow-2xl border border-white/10 text-white">
+        {/* user icon*/}
+        <div className="flex justify-center mb-10">
+          <div className="bg-white/10 p-1 rounded-full">
+            <FaUserCircle className="text-white/30 text-8xl" />
           </div>
         </div>
 
-        <p className="text-sm mt-4 text-center">
-          Haven't account? Please{" "}
+        <form onSubmit={handleSubmit(handleSignIn)} className="space-y-8">
+          {/* Email Field */}
+          <div className="relative flex items-center border-b border-white/40 pb-2 group focus-within:border-white transition-all">
+            <FaEnvelope className="text-white/60 mr-3" />
+            <input
+              type="email"
+              {...register("email", { required: true })}
+              placeholder="Email ID"
+              className="bg-transparent outline-none w-full placeholder:text-white/50 text-white"
+            />
+          </div>
+
+          {/* Password Field */}
+          <div className="relative flex items-center border-b border-white/40 pb-2 group focus-within:border-white transition-all">
+            <FaLock className="text-white/60 mr-3" />
+            <input
+              type="password"
+              {...register("password", { required: true })}
+              placeholder="Password"
+              className="bg-transparent outline-none w-full placeholder:text-white/50 text-white"
+            />
+          </div>
+
+          {/* Remember Me & Forgot Password */}
+          <div className="flex justify-between items-center text-xs text-white/70">
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                className="checkbox checkbox-xs border-white/40"
+              />
+              <span>Remember me</span>
+            </label>
+            <button type="button" className="italic hover:text-white">
+              Forgot Password?
+            </button>
+          </div>
+
+          {/* Login Button - Gradient Style */}
+          <button className="w-full py-3 rounded-xl bg-gradient-to-r from-[#4A0E2E] to-[#5D78FF] font-bold tracking-widest uppercase hover:opacity-90 transition-all shadow-lg">
+            LOGIN
+          </button>
+        </form>
+
+        {/* Demo Login Buttons */}
+        <div className="mt-8">
+          <div className="divider before:bg-white/10 after:bg-white/10 text-[10px] opacity-50">
+            OR DEMO LOGIN
+          </div>
+          <div className="grid grid-cols-3 gap-2 mt-4">
+            <button
+              onClick={() => handleDemoLogin("admin@test.com", "123456As!")}
+              className="py-1 px-2 rounded bg-white/5 border border-white/10 text-[10px] hover:bg-white/20"
+            >
+              Admin
+            </button>
+            <button
+              onClick={() => handleDemoLogin("librarian@test.com", "123456As!")}
+              className="py-1 px-2 rounded bg-white/5 border border-white/10 text-[10px] hover:bg-white/20"
+            >
+              Librarian
+            </button>
+            <button
+              onClick={() => handleDemoLogin("user@test.com", "123456As!")}
+              className="py-1 px-2 rounded bg-white/5 border border-white/10 text-[10px] hover:bg-white/20"
+            >
+              User
+            </button>
+          </div>
+        </div>
+
+        <p className="text-center text-sm mt-8 text-white/60">
+          Haven't account?{" "}
           <Link
-            state={location.state}
-            className="text-blue-300 hover:underline font-bold"
             to="/register"
+            className="text-blue-300 font-bold hover:underline"
           >
             Register
           </Link>
         </p>
-        
-        <div className="mt-2">
-           <SocialLogin />
+
+        <div className="mt-4 opacity-80">
+          <SocialLogin />
         </div>
       </div>
     </div>

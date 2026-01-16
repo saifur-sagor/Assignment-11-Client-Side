@@ -4,52 +4,44 @@ import { Link, useLocation, useNavigate } from "react-router";
 import useAxiosSecure from "./Hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+// আইকন যোগ করা হয়েছে ডিজাইনের পূর্ণতার জন্য
+import { FaUser, FaEnvelope, FaLock, FaImage, FaUserPlus } from "react-icons/fa";
 
 const Register = () => {
   const { registerUser, updateUserProfile } = UseAuth();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  console.log(from);
-
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  // user create handler
+
   const handleRegister = (data) => {
-    console.log("after register", data);
     const profilePhoto = data.photo[0];
     registerUser(data.email, data.password)
       .then(() => {
-        //  store the image in form data
         const formData = new FormData();
         formData.append("image", profilePhoto);
-        // send the photo to store and get the uri
-        const image_API_URL = `https://api.imgbb.com/1/upload?key=${
-          import.meta.env.VITE_image_host_key
-        }`;
+        const image_API_URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`;
 
         axios.post(image_API_URL, formData).then((res) => {
           const photoURL = res.data.data.url;
-          // create user
           const userInfo = {
             email: data.email,
             displayName: data.name,
             photoURL: photoURL,
           };
-          console.log(userInfo);
 
           axiosSecure.post("/users", userInfo).then((res) => {
-            console.log(res.data);
-
             if (res.data.insertedId) {
               console.log("user created in the database");
             }
           });
-          // update user profile to firebase
+
           const userProfile = {
             displayName: data.name,
             photoURL: photoURL,
@@ -58,101 +50,107 @@ const Register = () => {
             .then(() => {
               navigate(from, { replace: true });
             })
-            .catch((err) => {
-              console.log(err);
-            });
+            .catch((err) => console.log(err));
         });
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => console.log(error));
   };
+
   return (
-    <div className="card bg-gradient-to-r from-pink-300 via-gray-700 to-purple-400 w-full mx-auto max-w-sm shrink-0 shadow-2xl my-10">
+    // মেইন ব্যাকগ্রাউন্ড গ্রেডিয়েন্ট
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#2D1B36] via-[#1F2451] to-[#637CB5] p-6">
       <title>Register</title>
-      <div className="card-body">
-        <h2 className="text-center text-2xl font-bold">
-          Welcome to <span className="text-purple-600">Book</span>Courier
+      
+      {/* গ্লাস কার্ড ডিজাইন */}
+      <div className="w-full max-w-md bg-white/10 backdrop-blur-xl rounded-[3rem] p-8 shadow-2xl border border-white/10 text-white">
+        
+        <div className="flex justify-center mb-6">
+           <div className="bg-white/10 p-4 rounded-full">
+              <FaUserPlus className="text-white/40 text-5xl" />
+           </div>
+        </div>
+
+        <h2 className="text-center text-2xl font-bold mb-2">
+          Welcome to <span className="text-purple-400">Book</span>Courier
         </h2>
-        <p className="text-center ">Please Register</p>
-        <form onSubmit={handleSubmit(handleRegister)}>
-          <fieldset className="fieldset">
-            {/* name field */}
-            <label className="label">Name</label>
-            <input
-              type="text"
-              {...register("name", { required: true })}
-              className="input"
-              placeholder="Your name"
-            />
-            {errors.name?.type === "required" && (
-              <p className="text-red-500">Name is required</p>
-            )}
-            {/* image field */}
-            <label className="label">Photo</label>
-            <input
-              type="file"
-              {...register("photo", { required: true })}
-              className="file-input"
-              placeholder="photo"
-            />
-            {errors.photo?.type === "required" && (
-              <p className="text-red-500">photo is required</p>
-            )}
-            {/* email field */}
-            <label className="label">Email</label>
-            <input
-              type="email"
-              {...register("email", { required: true })}
-              className="input"
-              placeholder="Email"
-            />
-            {errors.email?.type === "required" && (
-              <p className="text-red-500">Email is required</p>
-            )}
-            {/* password field */}
-            <label className="label">Password</label>
-            <input
-              type="password"
-              {...register("password", {
-                required: true,
-                minLength: 6,
-                pattern:
-                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,
-              })}
-              className="input"
-              placeholder="Password"
-            />
-            {errors.password?.type === "required" && (
-              <p className="text-red-500">Password is required</p>
-            )}
-            {errors.password?.type === "minLength" && (
-              <p className="text-red-500">
-                Password must be 6 character longer
-              </p>
-            )}
-            {errors.password?.type === "pattern" && (
-              <p className="text-red-500">
-                Password must be one upperCase,one lowerCase,one number and
-                special character
-              </p>
-            )}
-            <div>
-              <a className="link link-hover">Forgot password?</a>
+        <p className="text-center text-white/60 mb-8">Please Register</p>
+
+        <form onSubmit={handleSubmit(handleRegister)} className="space-y-5">
+          
+          {/* Name Field */}
+          <div className="relative border-b border-white/30 pb-1">
+            <label className="text-xs text-white/50 block">Name</label>
+            <div className="flex items-center">
+              <FaUser className="mr-2 text-white/40" />
+              <input
+                type="text"
+                {...register("name", { required: true })}
+                className="bg-transparent outline-none w-full py-1 placeholder:text-white/20"
+                placeholder="Your name"
+              />
             </div>
-            <button className="btn btn-neutral mt-4">Register</button>
-          </fieldset>
-          <p>
-            Already have an account Please{" "}
-            <Link
-              state={location.state}
-              className="text-blue-500 hover:underline"
-              to="/login"
-            >
-              Login
-            </Link>
-          </p>
+            {errors.name && <p className="text-red-400 text-[10px] mt-1">Name is required</p>}
+          </div>
+
+          {/* Photo Field */}
+          <div className="relative border-b border-white/30 pb-1">
+            <label className="text-xs text-white/50 block">Photo</label>
+            <div className="flex items-center">
+              <FaImage className="mr-2 text-white/40" />
+              <input
+                type="file"
+                {...register("photo", { required: true })}
+                className="bg-transparent outline-none w-full py-1 text-xs file:hidden cursor-pointer"
+              />
+            </div>
+            {errors.photo && <p className="text-red-400 text-[10px] mt-1">Photo is required</p>}
+          </div>
+
+          {/* Email Field */}
+          <div className="relative border-b border-white/30 pb-1">
+            <label className="text-xs text-white/50 block">Email</label>
+            <div className="flex items-center">
+              <FaEnvelope className="mr-2 text-white/40" />
+              <input
+                type="email"
+                {...register("email", { required: true })}
+                className="bg-transparent outline-none w-full py-1 placeholder:text-white/20"
+                placeholder="Email ID"
+              />
+            </div>
+            {errors.email && <p className="text-red-400 text-[10px] mt-1">Email is required</p>}
+          </div>
+
+          {/* Password Field */}
+          <div className="relative border-b border-white/30 pb-1">
+            <label className="text-xs text-white/50 block">Password</label>
+            <div className="flex items-center">
+              <FaLock className="mr-2 text-white/40" />
+              <input
+                type="password"
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,
+                })}
+                className="bg-transparent outline-none w-full py-1 placeholder:text-white/20"
+                placeholder="Password"
+              />
+            </div>
+            {errors.password && <p className="text-red-400 text-[10px] mt-1">Check password requirements</p>}
+          </div>
+
+          <button className="w-full py-3 mt-4 rounded-xl bg-gradient-to-r from-[#4A0E2E] to-[#5D78FF] font-bold tracking-widest uppercase hover:opacity-90 transition-all shadow-lg text-white">
+            Register
+          </button>
         </form>
+
+        <p className="text-center text-sm mt-6 text-white/60">
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-300 font-bold hover:underline">
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );

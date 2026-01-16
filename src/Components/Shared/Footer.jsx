@@ -24,14 +24,14 @@ const Footer = () => {
           <div className="flex gap-4">
             <div className="flex items-center gap-5 pt-3 text-xl">
               <a
-                href="#"
+                href="https://web.facebook.com/saifurrahman.sagor.1"
                 title="Facebook"
                 className="hover:text-primary transition"
               >
                 <FaFacebookF />
               </a>
               <a
-                href="#"
+                href="www.linkedin.com/in/md-saifur-rahman-sagor"
                 title="LinkedIn"
                 className="hover:text-primary transition"
               >
@@ -50,7 +50,7 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li>📍 Dhaka, Bangladesh</li>
             <li>📧 support@bookcourier.com</li>
-            <li>📞 +880 1XXX-XXXXXX</li>
+            <li>📞 +880 1705-112955</li>
           </ul>
         </div>
       </div>

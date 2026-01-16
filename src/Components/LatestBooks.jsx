@@ -13,14 +13,14 @@ const LatestBooks = () => {
       .get("/books/latest")
       .then((res) => setBooks(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  });
 
   return (
     <div className="p-6">
       <h2 className="text-4xl font-bold text-center mb-8 ">
         Latest <span className="text-purple-600">Books</span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {books.map((book) => (
           <div
             key={book._id}
